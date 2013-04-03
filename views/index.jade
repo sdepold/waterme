@@ -4,6 +4,13 @@ block content
   h1= title
   p Welcome to #{title}
 
-  ul
-    each value, id in values
-      li #{id}: #{value}%
+  each value, id in values
+    div
+      h2= id
+
+      if value < 20
+        img(src="/images/plants-1.jpg")
+      else if value < 40
+        img(src="/images/plants-2.jpg")
+      else
+        img(src="/images/plants-3.jpg")
