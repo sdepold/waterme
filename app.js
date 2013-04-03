@@ -4,12 +4,11 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
 
-var app = express();
+var app    = express()
+  , values = {}
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -23,14 +22,24 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
-if ('development' == app.get('env')) {
+if ('development' === app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
-app.post('/', function(req, res, next) {
-  console.log(req.params, req.query, req.body)
-  res.send('hooray')
+app.get('/', function(req, res) {
+  res.render('index', {
+    title:  'water.me',
+    values: values
+  })
+})
+
+app.post('/', function(req, res) {
+  var value = req.body.value[0]
+    , id    = req.body.value[1]
+
+  values[id] = value
+
+  res.send('ok\n')
 })
 
 http.createServer(app).listen(app.get('port'), function(){
