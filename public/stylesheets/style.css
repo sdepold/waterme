@@ -180,6 +180,9 @@ nav ul li a:hover, nav ul li a.active{
 #logo span {
   color:#8F8F8F;
 }
+#logo:hover {
+  background: none;
+}
 .slide{
   height:250px;
   width:500px;
