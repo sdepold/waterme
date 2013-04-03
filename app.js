@@ -29,7 +29,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.post('/', function(req, res, next) {
-  console.log(req.params)
+  console.log(req.params, req.query, req.body)
   res.send('hooray')
 })
 
