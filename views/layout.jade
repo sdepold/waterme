@@ -3,5 +3,19 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="javascripts/jquery.1.4.4.js")
+    script(src="javascripts/cufon.js")
+    script(src="javascripts/font.js")
+    script(src="javascripts/config.js")
+    script(src="javascripts/script.js")
   body
-    block content
+    #wrap
+      nav
+        h1
+          a#logo(href="../") water<span>.me</span>
+        ul#nav
+          li
+            a(href="#plants") Your plants
+        #shadow
+      #content
+        block content
