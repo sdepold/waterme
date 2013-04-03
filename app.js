@@ -30,6 +30,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.post('/', function(req, res, next) {
   console.log(req.params)
+  res.send('hooray')
 })
 
 http.createServer(app).listen(app.get('port'), function(){
