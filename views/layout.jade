@@ -3,11 +3,11 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src="javascripts/jquery.1.4.4.js")
-    script(src="javascripts/cufon.js")
-    script(src="javascripts/font.js")
-    script(src="javascripts/config.js")
-    script(src="javascripts/script.js")
+    script(src="/javascripts/jquery.1.4.4.js")
+    script(src="/javascripts/cufon.js")
+    script(src="/javascripts/font.js")
+    script(src="/javascripts/config.js")
+    script(src="/javascripts/script.js")
   body
     #wrap
       nav
@@ -15,7 +15,8 @@ html
           a#logo(href="../") water<span>.me</span>
         ul#nav
           li
-            a(href="#plants") Your plants
+            a(href="/") Your plants
+          block navigation
         #shadow
       #content
         block content

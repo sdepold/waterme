@@ -1,0 +1,17 @@
+extends ../layout
+
+block navigation
+  li
+    a.active(href="/plants/#{plant.id}") Plant #{plant.identifier}
+
+
+block content
+  h1 Plant #{plant.identifier}
+  ul
+    li Identifier: #{plant.identifier}
+    li Mac Address: #{plant.macAddress}
+    li
+      | Records:
+      ul
+        - each record in plant.sortedRecords()
+          li #{record.value.toFixed(2)}% (#{record.createdAt})

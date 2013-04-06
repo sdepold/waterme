@@ -1,47 +1,22 @@
+/*global require:false, console:false*/
 
-/**
- * Module dependencies.
- */
+var app    = require('./lib/server')
+  , http   = require('http')
+  , db     = require('./models')
 
-var express = require('express')
-  , http = require('http')
-  , path = require('path');
+app.get('/',           require('./routes'))
+app.post('/',          require('./routes/plants/create'))
+app.get('/plants/:id', require('./routes/plants/show'))
 
-var app    = express()
-  , values = {}
-
-// all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
-
-// development only
-if ('development' === app.get('env')) {
-  app.use(express.errorHandler());
-}
-
-app.get('/', function(req, res) {
-  res.render('index', {
-    title:  'water.me',
-    values: values
+db.sequelize.sync({ force: true }).complete(function(err) {
+  db.User.findOrCreate({ username: 'sdepold', 'email': 'sascha@depold.com' }).success(function() {
+    if (err) {
+      throw err
+    } else {
+      http.createServer(app).listen(app.get('port'), function(){
+        console.log('Express server listening on port ' + app.get('port'))
+      })
+    }
   })
 })
 
-app.post('/', function(req, res) {
-  var value = req.body.value[0]
-    , id    = req.body.value[1]
-
-  values[id] = value
-
-  res.send('ok\n')
-})
-
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});

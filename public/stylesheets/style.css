@@ -421,3 +421,7 @@ ul.plants li img {
   margin-right: 10px;
   vertical-align: bottom;
 }
+
+ul ul li {
+  margin-left: 15px;
+}
