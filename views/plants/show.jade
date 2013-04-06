@@ -14,4 +14,4 @@ block content
       | Records:
       ul
         - each record in plant.records
-          li #{record.value.toFixed(2)}% (#{record.createdAt})
+          li #{parseFloat(record.value).toFixed(2)}% (#{record.createdAt})
