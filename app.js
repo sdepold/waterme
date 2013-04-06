@@ -8,7 +8,7 @@ app.get('/',           require('./routes'))
 app.post('/',          require('./routes/plants/create'))
 app.get('/plants/:id', require('./routes/plants/show'))
 
-db.sequelize.sync({ force: true }).complete(function(err) {
+db.sequelize.sync().complete(function(err) {
   db.User.findOrCreate({ username: 'sdepold', 'email': 'sascha@depold.com' }).success(function() {
     if (err) {
       throw err
