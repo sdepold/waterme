@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  h1 Register
+
+  form(method="POST", name="login", action="/register")
+    label.label
+      input.input(type="text", name="email", placeholder="E-Mail", value=values.email)
+      if errors.email
+        span.error= errors.email[0].split(':')[0]
+
+    label.label
+      input.input(type="password", name="password_once", placeholder="Password", value=values.password_once)
+      if errors.password
+        span.error= errors.password[0].split(':')[0]
+
+    label.label
+      input.input(type="password", name="password_again", placeholder="Password again", value=values.password_again)
+      if errors.password
+        span.error= errors.password[0].split(':')[0]
+
+    div(style="margin-top: 8px")
+      input.submit(type="submit", value="Register")

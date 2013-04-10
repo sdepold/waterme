@@ -17,7 +17,7 @@ if (!global.hasOwnProperty('db')) {
     })
   } else {
     // the application is executed on the local machine ... use mysql
-    sequelize = new Sequelize('example-app-db', 'root', null)
+    sequelize = new Sequelize('water.me', 'root', null)
   }
 
   global.db = {

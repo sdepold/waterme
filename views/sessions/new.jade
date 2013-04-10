@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1 Login
+
+  form(method="POST", name="login", action="/login")
+    label.label
+      input.input(type="text", name="email", placeholder="E-Mail")
+
+    label.label
+      input.input(type="password", name="password", placeholder="Password", style="color: rgb(68, 68, 68)")

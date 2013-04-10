@@ -1,21 +1,4 @@
 extends layout
 
 block content
-  h1 Your plants:
-
-  #plants.slide
-    ul.plants
-      each plant in plants
-        - var record = plant.latestRecord()
-
-        li
-          a(href="/plants/#{plant.id}")
-            if record.value < 20
-              img(src="/images/flask_empty.png", width=24)
-            else if record.value < 40
-              img(src="/images/flask.png", width=24)
-            else
-              img(src="/images/flask_full.png", width=24)
-
-            = plant.identifier + ' (' + parseInt(record.value) + '%)'
-
+  |foo

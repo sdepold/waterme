@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  h1 Add a plant
+
+  form(action="/plants/assign", method="POST", name="assign")
+    label.label
+      input.input(type="text", name="macAddress", placeholder="MAC address", value=values.macAddress)
+      if errors.macAddress
+        span.error= errors.macAddress[0].split(':')[0]
+    div(style="margin-top: 8px")
+      input.submit(type="submit", value="Assign")

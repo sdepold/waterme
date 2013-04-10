@@ -7,21 +7,15 @@ module.exports = function(req, res) {
     , id    = req.body.value[1]
     , mac   = req.body.value[2]
 
-  db.User.find({
-    where: { username: 'sdepold' }
-  }).success(function(user) {
-    db.Plant.findOrCreate({
-      identifier: id,
-      macAddress: mac
-    }).success(function(plant) {
-      plant.setUser(user).success(function() {
-        db.Record.create({
-          value: value
-        }).success(function(record) {
-          plant.addRecord(record).success(function() {
-            res.send('ok\n')
-          })
-        })
+  db.Plant.findOrCreate({
+    identifier: id,
+    macAddress: mac
+  }).success(function(plant) {
+    db.Record.create({
+      value: value
+    }).success(function(record) {
+      plant.addRecord(record).success(function() {
+        res.send('ok\n')
       })
     })
   })

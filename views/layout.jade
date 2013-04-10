@@ -15,7 +15,17 @@ html
           a#logo(href="../") water<span>.me</span>
         ul#nav
           li
-            a(href="/") Your plants
+            a(href="/") Home
+          if user
+            li
+              a(href="/plants") Your plants
+            li
+              a(href="/plants/add") Add a plant
+          else
+            li
+              a(href="/login") Login
+            li
+              a(href="/register") Register
           block navigation
         #shadow
       #content

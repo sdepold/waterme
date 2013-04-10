@@ -425,3 +425,66 @@ ul.plants li img {
 ul ul li {
   margin-left: 15px;
 }
+
+/*.label {
+  text-align:left;
+  width:392px;
+  display:block;
+  height:36px;
+  background:url(/images/inputfield.gif) top left no-repeat;
+}*/
+
+.input {
+  border:0;
+  background:url(/images/inputfield.gif) top left no-repeat;
+  font-size:14px;
+  font-weight:700;
+  width:370px;
+  padding:0 5px;
+  outline: none;
+  margin-top:8px;
+  line-height: 34px;
+  color: #ccc;
+}
+
+.input::-webkit-input-placeholder {
+   color: rgb(68, 68, 68);
+}
+
+.input:-moz-placeholder { /* Firefox 18- */
+   color: rgb(68, 68, 68);
+}
+
+.input::-moz-placeholder {  /* Firefox 19+ */
+   color: rgb(68, 68, 68);
+}
+
+.input:-ms-input-placeholder {
+   color: rgb(68, 68, 68);
+}
+
+.submit {
+  font-size:14px;
+  font-weight:700;
+  color:#CCCCCC;
+  width:77px;
+  height:26px;
+  border:0;
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+  border-radius:2px;
+  background:url(/images/nav_bg.png) center left repeat-x #B3CC57;
+  cursor: pointer;
+  -webkit-text-shadow: 1px 1px 0px #444444;
+  -moz-text-shadow: 1px 1px 0px #444444;
+  text-shadow: 1px 1px 0px #444444;
+  -webkit-text-shadow: none;
+  -moz-text-shadow: none;
+  text-shadow: none;
+  color:#383838;
+  background-color:#B3CC57 !important;
+}
+
+.error {
+  margin-left: 10px;
+}
