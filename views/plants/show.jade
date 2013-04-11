@@ -4,7 +4,6 @@ block navigation
   li
     a.active(href="/plants/#{plant.id}") Plant #{plant.identifier}
 
-
 block content
   h1 Plant #{plant.identifier}
   ul
@@ -12,6 +11,28 @@ block content
     li Mac Address: #{plant.macAddress}
     li
       | Records:
+      br
+      br
+      #records(style="width:500px; height:200px; background: #eee; border-radius: 5px")
       ul
         - each record in plant.records
           li #{parseFloat(record.value).toFixed(2)}% (#{record.createdAt})
+  script.
+    var records = !{JSON.stringify(plant.records)}
+
+    new Dygraph(
+      document.getElementById("records"),
+      function() {
+        var result = "Date,Value\n"
+
+        records.forEach(function(record) {
+          var t = record.createdAt.match(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2})/)
+          result += t[1] + ' ' + t[2] + ',' + record.value + '\n'
+        })
+
+        return result
+      },
+      {
+        Value: { fillGraph: true }
+      }
+    )
