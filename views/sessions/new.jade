@@ -9,3 +9,8 @@ block content
 
     label.label
       input.input(type="password", name="password", placeholder="Password", style="color: rgb(68, 68, 68)")
+      if errors.password
+        span.error= errors.password[0].split(':')[0]
+
+    div(style="margin-top: 8px")
+      input.submit(type="submit", value="Register")

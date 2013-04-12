@@ -6,6 +6,7 @@ var app  = require('./lib/server')
 
 app.get('/',               require('./routes'))
 app.get('/login',          require('./routes/sessions/new'))
+app.post('/login',         require('./routes/sessions/create'))
 app.get('/register',       require('./routes/users/new'))
 app.post('/register',      require('./routes/users/create'))
 app.get('/plants',         require('./routes/plants/index'))

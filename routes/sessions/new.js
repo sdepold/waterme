@@ -2,11 +2,13 @@
 
 module.exports = function(req, res) {
   if (!!req.session.userId) {
-    res.redirectTo('/plants')
+    res.redirect('/plants')
   } else {
     res.render('sessions/new', {
       title:  'water.me',
-      user:   null
+      user:   null,
+      errors: {},
+      values: {}
     })
   }
 }

@@ -4,7 +4,7 @@ var db = require(__dirname + '/../../models')
 
 module.exports = function(req, res) {
   if (!!req.session.userId) {
-    res.redirectTo('/')
+    res.redirect('/')
   } else {
     var errors = {}
       , user   = null
