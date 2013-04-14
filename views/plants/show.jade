@@ -2,11 +2,13 @@ extends ../layout
 
 block navigation
   li
-    a.active(href="/plants/#{plant.id}") Plant #{plant.identifier}
+    a.active(href="/plants/#{plant.id}") Plant #{plant.displayName()}
 
 block content
-  h1 Plant #{plant.identifier}
+  h1 Plant: #{plant.displayName()}
   ul
+    li
+      a(href="/plants/#{plant.id}/edit") Edit
     li Identifier: #{plant.identifier}
     li Mac Address: #{plant.macAddress}
     li

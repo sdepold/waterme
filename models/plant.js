@@ -1,8 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
   return sequelize.define('Plant', {
     macAddress: DataTypes.STRING,
-    identifier: DataTypes.STRING
+    identifier: DataTypes.STRING,
+    name:       DataTypes.STRING
   }, {
+    classMethods: {
+      massAssignableFields: function() {
+        return [ 'name' ]
+      }
+    },
+
     instanceMethods: {
       sortedRecords: function() {
         if (!!this.records) {
@@ -28,6 +35,10 @@ module.exports = function(sequelize, DataTypes) {
         } else {
           return null
         }
+      },
+
+      displayName: function() {
+        return !!this.name ? this.name : this.identifier
       }
     }
   })

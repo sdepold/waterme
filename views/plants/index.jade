@@ -3,7 +3,7 @@ extends ../layout
 block content
   h1 Your plants:
 
-  #plants.slide
+  .plants.index
     ul.plants
       each plant in plants
         - var record = plant.latestRecord()
@@ -17,5 +17,5 @@ block content
             else
               img(src="/images/flask_full.png", width=24)
 
-            = plant.identifier + ' (' + parseInt(record.value) + '%)'
+            = plant.displayName() + ' (' + parseInt(record.value) + '%)'
 

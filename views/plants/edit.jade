@@ -1,0 +1,20 @@
+extends ../layout
+
+block navigation
+  li
+    a.active(href="/plants/#{plant.id}/edit") Plant #{plant.displayName()}
+
+block content
+  h1 Add a plant
+
+  form(action="/plants/#{plant.id}", method="POST", name="assign")
+    label.label
+      input.input(type="text", name="macAddress", placeholder="MAC address", value=values.macAddress)
+      if errors.macAddress
+        span.error= errors.macAddress[0].split(':')[0]
+    label.label
+      input.input(type="text", name="name", placeholder="Name", value=values.name)
+      if errors.name
+        span.error= errors.name[0].split(':')[0]
+    div(style="margin-top: 8px")
+      input.submit(type="submit", value="Save")
