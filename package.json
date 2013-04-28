@@ -11,7 +11,8 @@
     "sequelize": "~1.6.0",
     "mysql": "~2.0.0-alpha7",
     "pg": "~1.0.0",
-    "connect-session-sequelize": "0.0.2"
+    "connect-session-sequelize": "0.0.2",
+    "nodemailer": "~0.4.1"
   },
   "engines": {
     "node": "0.8.x",
