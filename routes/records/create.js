@@ -16,6 +16,8 @@ module.exports = function(req, res) {
     }).success(function(record) {
       plant.addRecord(record).success(function() {
         res.send('ok\n')
+
+        record.afterCreate()
       })
     })
   })
