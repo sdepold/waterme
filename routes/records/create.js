@@ -6,10 +6,11 @@ module.exports = function(req, res) {
   var value = req.body.value[0]
     , id    = req.body.value[1]
     , mac   = req.body.value[2]
+    , port  = req.body.value[3]
 
   db.Plant.findOrCreate({
     identifier: id,
-    macAddress: mac
+    macAddress: mac + port
   }).success(function(plant) {
     db.Record.create({
       value: value
